@@ -1,0 +1,14 @@
+runtime: php74  # Replace with your desired PHP version (e.g., php81)
+
+env: flex  # Specify the Flexible Environment
+
+service: default  # Name of the service (usually 'default')
+
+instance_class: F1  # Select an appropriate instance class
+
+handlers:
+  - url: /(.+\.php)$  # Matches all URLs ending with .php
+    script: \1          # Execute the matching PHP file
+
+  - url: /.*           # Catches all other URLs
+    script: index.php   # Serve index.php for non-PHP requests
